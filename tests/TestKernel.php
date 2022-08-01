@@ -7,14 +7,12 @@ use Symfony\Component\HttpKernel\Kernel;
 
 class TestKernel extends Kernel
 {
-    private $configurationFilename;
+    private string $configurationFilename;
 
     /**
      * Defines the configuration filename.
-     *
-     * @param string $filename
      */
-    public function setConfigurationFilename($filename)
+    public function setConfigurationFilename(string $filename): void
     {
         $this->configurationFilename = $filename;
     }
@@ -33,7 +31,7 @@ class TestKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load($this->configurationFilename);
     }
